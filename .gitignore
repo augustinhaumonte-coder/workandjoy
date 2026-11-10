@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+._*
+
+# Dépendances / build
+node_modules/
+_site/
+.cache/
+
+# Netlify
+.netlify/
+
+# Archives lourdes
+site-workandjoy.zip
+
+# Sources brutes envoyées par Anne-Sophie : 215 Mo de scans et de portraits
+# non retouchés, dont un PDF de 95,9 Mo. Rien de tout cela ne sert au site,
+# et les originaux sont chez elle. Le dossier reste sur le disque.
+Documents demandés/
