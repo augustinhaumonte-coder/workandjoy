@@ -1,0 +1,7 @@
+# Configuration de déploiement, lue par Netlify à la racine du dépôt.
+# Le site est fait de fichiers statiques écrits à la main : rien à construire,
+# donc pas de clé "command". Seul le dossier site/ est publié, le reste du
+# dépôt (documents de travail, logos, maquettes) n'est jamais servi en ligne.
+
+[build]
+  publish = "site"
