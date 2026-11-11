@@ -221,6 +221,7 @@
     for (var i = 1; i < kids.length; i++) {
       var a = getComputedStyle(kids[i - 1]), b = getComputedStyle(kids[i]);
       if (!(a.backgroundColor !== b.backgroundColor || parseFloat(b.borderTopWidth) > 0 || parseFloat(a.borderBottomWidth) > 0)) continue;
+      if (parseFloat(b.marginTop) > 1 || parseFloat(a.marginBottom) > 1) continue;   /* une marge sépare les deux blocs : la ligne ne tomberait pas sur le bord visible */
       var y = tops[i];
       if (y - V.T < F.sA + 0.05 * vh) continue;        /* trop tôt : la bille n'a pas fini de quitter l'en-tête */
       if (y - prev < GAP * vh) continue;               /* trop près du palier précédent */

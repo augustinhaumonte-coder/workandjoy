@@ -59,6 +59,8 @@ Vérifié par script sur les 12 pages, ordinateur et téléphone : aucune erreur
 
 **Le médiateur a changé de nom.** Ses CGV citent CNPM MÉDIATION CONSOMMATION à Saint-Chamond. Vérification faite sur le site du médiateur : l'ancienne adresse redirige vers `www.medconsodev.eu`, l'entité s'appelle MÉDIATION CONSOMMATION DÉVELOPPEMENT et elle est à Saint-Étienne. La mention des mentions légales reprend ces coordonnées, avec la formule que le médiateur demande à ses adhérents. Le texte exact est dans son espace adhérent, rubrique « Mes mentions obligatoires » : c'est lui qui fait foi.
 
+**Correction du 11 novembre au soir : elle n'adhère à aucun médiateur.** Sa réponse : « je ne suis pas adhérente, j'ai dû recopier ça quelque part ». La rubrique est retirée des mentions légales et l'article 12 des CGV aussi, l'ancien article 13 devient le 12. Un commentaire HTML marque l'endroit dans les deux fichiers. Elle doit adhérer à un médiateur de la consommation parce que le bilan de compétences se vend à des particuliers. Tant que ce n'est pas fait, le site n'en cite aucun : c'est un manque, mais ce n'est plus une affirmation fausse.
+
 **Hébergeur.** Netlify, Inc., 101 2nd Street, San Francisco, CA 94105. Netlify ne publie pas de téléphone, son adresse de contact le remplace.
 
 **Menu.** Le vrai logo fait 171 px de large contre 134 pour l'ancien mot-symbole. Le burger passe de 920 à 1100 px et le téléphone s'efface jusqu'à 1280 px. Au passage, ça corrige un débordement qui existait déjà entre 921 et 980 px.
@@ -72,6 +74,26 @@ Vérifié par script sur les 12 pages, ordinateur et téléphone : aucune erreur
 Dans la foulée, les éléments de préversion sont retirés des fichiers : plus de `noindex` dans `site/_headers`, plus de balise `review.js`, plus de formulaire `avis-maquette`. Le fichier `review.js` lui-même reste à supprimer à la main, les outils fichier ne savent pas supprimer.
 
 **Piège d'outillage découvert.** Une écriture dans le dossier depuis un même chemin de préparation renvoie parfois l'ancien contenu : les notes de reprise écrites en fin d'après-midi n'avaient pas été mises à jour, alors que l'outil annonçait le contraire. Depuis, chaque écriture part d'un chemin neuf, et la taille du fichier est relue après coup. Les copies des prototypes dans `Claude outputs/` sont probablement restées à leur première version pour la même raison ; elles ne servent plus.
+
+### CGV et CGU reprises du site Wix, défauts d'affichage corrigés
+
+**CGV et CGU.** Lues sur `workandjoy.org/cgv` et `/cgu`, recopiées mot pour mot dans deux nouvelles pages aux mêmes adresses, donc sans redirection à prévoir. Une seule retouche : la phrase « Ce modèle est à adapter selon les services et les spécificités de ton activité », qui était publiée telle quelle à la fin des CGU, est retirée. Les contradictions entre les CGV et le nouveau site sont listées dans `REPRENDRE-ICI-1.md`, point 2 : elles ne sont pas corrigées, c'est un texte contractuel.
+
+**Défauts d'affichage.** Un balayage des 14 pages à six largeurs de 320 à 414 px en a trouvé plus que les trois signalés :
+
+| Défaut | Correction |
+|---|---|
+| Texte collé au bloc violet du témoignage, pages formation, dirigeant et bilan | De l'air sous le bloc qui précède. Sur formation et dirigeant, par une classe `gains--avant-bloc`, parce que le même bloc est suivi d'autre chose sur deux autres pages |
+| Titre « Accompagnement » trop large sous 386 px, pages dirigeant et équipes | La taille du titre suit la largeur de l'écran en dessous de 427 px. C'était le plus sérieux : un iPhone de 375 px débordait de 11 px |
+| Bouton « Voir les accompagnements » trop large sous 366 px, accueil | Sous 400 px, les boutons ont moins de marge intérieure et peuvent passer sur deux lignes |
+| Bouton « Prendre rendez-vous » du bas trop large sous 343 px, toutes les pages | Même correction |
+| Peu d'air entre le texte et « On en parle quinze minutes ? » sur les pages légales, sur téléphone | Marge basse des pages légales relevée |
+
+Après correction : aucun débordement sur les 14 pages de 320 à 414 px.
+
+**Le O du logo.** Une fois la bille partie, le O vide était tracé trop épais. Il devient un trait fin et atténué, à l'intérieur du rond d'origine.
+
+**Animations.** Une arête séparée du bloc voisin par une marge n'est plus retenue comme palier : la ligne d'arrêt ne tomberait pas sur le bord visible.
 
 ---
 

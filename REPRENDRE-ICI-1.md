@@ -32,6 +32,8 @@ site/
 ├── temoignages/                       9 avis Google + 2 LinkedIn
 ├── contact/                           formulaire + coordonnées
 ├── mentions-legales/
+├── cgv/                               reprises du site Wix le 11 novembre, mêmes adresses qu'avant
+├── cgu/
 ├── politique-de-confidentialite/
 ├── accessibilite-et-handicap/
 ├── robots.txt  sitemap.xml  _headers  favicon.svg  favicon.ico  apple-touch-icon.png
@@ -87,8 +89,8 @@ Pas de framework, pas d'étape de compilation. Un fichier CSS pour tout le site.
 
 **Anne-Sophie**
 
-1. **Médiateur de la consommation.** Elle y adhère : ses CGV citent CNPM MÉDIATION CONSOMMATION. Mais l'entité a changé de nom et d'adresse : elle s'appelle MÉDIATION CONSOMMATION DÉVELOPPEMENT, à Saint-Étienne, et son site est `www.medconsodev.eu`. La mention est rédigée dans les mentions légales avec ces coordonnées, sous un commentaire `À CONFIRMER`. **Reste à faire** : qu'elle copie le texte officiel depuis son espace adhérent, rubrique « Mes mentions obligatoires », ce qui confirmera aussi que l'adhésion est active, et qu'elle corrige ses CGV. Ensuite la page bilan peut être publiée.
-2. **CGV et CGU.** Les CGU sont reçues : sept articles génériques, avec une phrase de modèle à retirer en fin de texte. **Les CGV manquent encore**, Augustin les lui redemande. Pages à créer et liens à remettre dans le pied de page quand les deux textes sont là.
+1. **Médiateur de la consommation.** Réponse d'Anne-Sophie le 11 novembre : elle n'adhère à aucun médiateur, le texte de ses CGV avait été recopié ailleurs. La mention fausse est donc retirée des mentions légales et des CGV (article 12 supprimé, l'ancien article 13 devient le 12), un commentaire HTML marque l'endroit dans les deux fichiers. Le site Wix en ligne affiche encore l'ancien texte. **Reste à faire** : qu'elle adhère à un médiateur de la consommation, obligatoire dès qu'elle vend à des particuliers, ce qui est le cas du bilan de compétences (article L.612-1 du code de la consommation). Une fois l'adhésion faite, remettre la mention aux deux endroits avec le texte que le médiateur fournit.
+2. **CGV et CGU.** Reprises du site Wix le 11 novembre, aux mêmes adresses `/cgv` et `/cgu`, liens remis dans le pied de page. La phrase de modèle qui terminait les CGU est retirée. **Les CGV sont reprises mot pour mot et contredisent le nouveau site sur plusieurs points, à lui faire relire** : bilan à 2 202 € net de TVA alors que la page bilan affiche 1 750 et 2 700 € HT ; paiement en trois mensualités de 1 000 € ; 12 heures sur 6 mois au plus alors que la page annonce 8 à 12 semaines ; une « formation en bilan de compétences » de 35 heures à 3 000 € HT qui n'existe pas sur le nouveau site ; tribunaux de Paris compétents pour une société de Marseille . La clause sur le médiateur est retirée, voir le point 1.
 3. ~~Quinze ans ou douze ans d'ingénierie.~~ Tranché le 11 novembre : quinze ans, de 1999 à 2014. Elle précise qu'à la fin elle était salariée sans plus travailler. La page À propos affiche maintenant « 2002 à 2014 ».
 4. ~~Les neuf entreprises nommées sur la page À propos.~~ Validées le 11 novembre.
 5. **Page formation, conformité Qualiopi.** Prérequis validés le 11 novembre. Elle n'a pas trouvé les modalités d'évaluation : elles sont dans le tableau « En pratique », ligne « Évaluation ». À lui montrer pour validation, avec le délai d'accès.
@@ -102,12 +104,12 @@ Ajouts du 11 novembre, à lui faire valider :
 - **« Aix-en-Provence »** est cité une fois, dans la FAQ du séminaire. C'est dans sa zone, mais le site ne nommait pas la ville.
 - **Les FAQ des pages formation et bilan** s'ajoutent aux engagements opposables en audit Qualiopi. Elles ne reprennent que des faits déjà écrits sur le site.
 - **Bilan, heures annoncées.** 8 rendez-vous de 1h30 font 12 h, les formules affichent 13 h et 24 h. À clarifier.
-- **Texte collé au bloc violet du témoignage** sur trois pages : formation et dirigeant (« Ce que vous y gagnez »), bilan (note sous les deux formules). Défaut d'espacement d'origine, non corrigé.
+- ~~Texte collé au bloc violet du témoignage~~ sur trois pages : corrigé le 11 novembre.
 
 **Augustin**
 
-9. Un trou `À COMPLÉTER` reste dans le HTML : l'accessibilité précise des locaux, qui dépend d'elle. L'adresse de l'hébergeur est remplie. La mention du médiateur est rédigée mais porte un `À CONFIRMER`, voir le point 1.
-10. Exporter de Wix avant toute résiliation : CGV, CGU, messages du formulaire, clients et rendez-vous Wix Bookings.
+9. Un trou `À COMPLÉTER` reste dans le HTML : l'accessibilité précise des locaux, qui dépend d'elle. L'adresse de l'hébergeur est remplie. La mention du médiateur est retirée, voir le point 1.
+10. Exporter de Wix avant toute résiliation : les CGV et CGU sont reprises. Restent les messages du formulaire, les clients et les rendez-vous Wix Bookings.
 11. Désactiver le renouvellement automatique du forfait Wix avant le **21 mai 2027**, sans toucher au domaine qui se renouvelle le 11 juin.
 12. **Vérifier le budget de crédits Netlify avant la bascule.** Le plan gratuit donne 300 crédits par mois, plafond strict. Un déploiement en production en coûte 15, la bande passante 20 par gigaoctet. Une vingtaine de pushs par mois suffit donc à épuiser le quota. Si ça serre, OVH redevient une option sérieuse, au prix d'un script PHP à écrire pour le formulaire.
 
@@ -118,7 +120,7 @@ Ajouts du 11 novembre, à lui faire valider :
 ## Prochaines étapes, dans l'ordre
 
 1. ~~Recueillir les retours d'Anne-Sophie, corriger.~~ Fait le 11 novembre, par mail.
-2. Combler les trous légaux : LinkedIn et hébergeur faits. Restent le texte officiel du médiateur, les CGV, l'accessibilité des locaux.
+2. Combler les trous légaux : LinkedIn et hébergeur faits. Restent l'adhésion à un médiateur, la relecture des CGV, l'accessibilité des locaux.
 3. Décider de 11ty, qui conditionne le blog et l'interface d'édition.
 4. Recette sur la préversion : **téléphone réel** (les animations n'y ont jamais été essayées au doigt), formulaire de contact, lien Bookings, relecture des textes.
 5. Brancher le formulaire sur Netlify Forms : activer la détection des formulaires dans Netlify, redéployer, régler l'adresse de notification, puis envoyer un message d'essai.
