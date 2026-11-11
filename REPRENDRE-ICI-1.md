@@ -35,7 +35,7 @@ site/
 ├── politique-de-confidentialite/
 ├── accessibilite-et-handicap/
 ├── robots.txt  sitemap.xml  _headers  favicon.svg  favicon.ico  apple-touch-icon.png
-└── assets/  css/style.css · js/scene.js (animations) et review.js (relecture) · fonts/ (6 woff2) · img/ (9 fichiers, dont 2 webp)
+└── assets/  css/style.css · js/scene.js (animations) · fonts/ (6 woff2) · img/ (9 fichiers, dont 2 webp)
 
 .gitignore                             exclut Documents demandés/, voir plus bas
 netlify.toml                           dit à Netlify de ne publier que site/
@@ -62,7 +62,8 @@ Pas de framework, pas d'étape de compilation. Un fichier CSS pour tout le site.
 | On quitte l'hébergement Wix pour Netlify | Netlify accepte un domaine dont le DNS est ailleurs, Cloudflare Pages non. Économise 360 € TTC par an |
 | Montserrat et Jost | Avenir et Century Gothic de sa charte sont payantes, budget nul. Substituts très proches, validés par elle sur une planche comparative |
 | Polices auto-hébergées | Évite le transfert d'IP vers Google que le RGPD sanctionne |
-| Couleurs du fichier logo, pas du questionnaire | Le SVG contient `#424193 #FFED00 #E94B63`, elle avait noté `#4335B1 #FFDB00 #FF4860`. Suivre le fichier pour que logo et page s'accordent. **À faire confirmer** |
+| Couleurs du fichier logo, pas du questionnaire | Le SVG contient `#424193 #FFED00 #E94B63`, elle avait noté `#4335B1 #FFDB00 #FF4860`. Suivre le fichier pour que logo et page s'accordent. Validé par Anne-Sophie le 11 novembre |
+| Son vrai logo dans l'en-tête, en version horizontale | Demandé deux fois par Anne-Sophie. Le logo complet est trop haut pour une barre de 70 px : l'en-tête porte son carré, puis « WORK & JOY » dans le dessin d'origine, en SVG dans la page. La signature « ENJOY YOUR JOB » serait illisible à cette taille, elle reste sur le logo du pied de page |
 | Animations au défilement, en JavaScript | Décision du 11 novembre, qui remplace le « pas d'animation » d'origine. `animation-timeline: view()` reste écarté : il masquait le contenu. Ici aucun texte n'est jamais masqué, le script n'ajoute que des dessins. Sans JavaScript ou avec « réduire les animations », les pages gardent leur mise en page d'origine |
 | Arrêts de défilement en `position: sticky`, pas en JavaScript | C'est le navigateur qui fige la page. Un arrêt simulé en JavaScript tremble sur téléphone |
 | Carré de la scène à droite, texte à gauche | Pour que la bille entre et sorte par la marge sans survoler le texte |
@@ -76,7 +77,8 @@ Pas de framework, pas d'étape de compilation. Un fichier CSS pour tout le site.
 | Badge Qualiopi sur l'accueil seulement | La charte interdit le logo sur un support dédié à une seule action de formation. Les pages d'offre n'en portent que la mention en texte |
 | Logo UPE13 sur disque blanc | Sa moitié haute est transparente et « UPE13 » y est écrit en violet : sans disque, il disparaît dans le pied de page |
 | Texte avant photo sur mobile | Le portrait en `order: -1` remplissait tout le premier écran et repoussait le titre et les boutons sous la ligne de flottaison |
-| Téléphone masqué de 921 à 1200 px | La barre de navigation est déjà pleine sur cette plage. Il reste dans le menu burger en dessous |
+| Menu burger sous 1100 px | Seuil relevé le 11 novembre : le vrai logo est plus large que l'ancien mot-symbole. L'ancien seuil de 920 px débordait déjà entre 921 et 980 px |
+| Plus de téléphone sur le site, sauf dans les mentions légales | Demande d'Augustin le 11 novembre. Retiré de l'en-tête, de la page contact et de la page accessibilité. Gardé dans les mentions légales : pour une société, le numéro fait partie des mentions obligatoires |
 | Pas encore de 11ty | Reporté. Conséquence : l'en-tête et le pied de page sont dupliqués dans 12 fichiers |
 
 ---
@@ -85,14 +87,14 @@ Pas de framework, pas d'étape de compilation. Un fichier CSS pour tout le site.
 
 **Anne-Sophie**
 
-1. **Médiateur de la consommation.** Elle n'y adhère pas. Obligatoire dès lors qu'on vend à des particuliers, ce qui est le cas du bilan même financé par le CPF. Tant que ce n'est pas réglé, la page bilan ne doit pas être publiée. Son auditeur Qualiopi saura confirmer.
-2. **CGV et CGU.** Elles existent sur le site Wix, il faut les textes avant de résilier. Les liens ont été retirés du pied de page en attendant.
-3. **Quinze ans ou douze ans d'ingénierie.** Son CV dit 1999 à 2011, elle écrit « quinze ans » partout. L'accueil affiche quinze. À trancher.
-4. **Les neuf entreprises nommées** sur la page À propos viennent de son CV. Un CV circule en main propre, un site est public. À valider.
-5. **Page formation, conformité Qualiopi.** Prérequis, modalités d'évaluation et délai d'accès sont des propositions. Ce sont des engagements opposables en audit, elle doit les relire.
-6. **Accès à sa fiche Google**, et le lien « Demander des avis ».
-7. **L'adresse de son profil LinkedIn.** Le pied de page des 12 pages pointe encore sur `https://www.linkedin.com/`, l'accueil du réseau. Sur un site B2B c'est le lien le plus cliqué après « Prendre rendez-vous ».
-8. **Neuf ou dix avis.** L'en-tête de la page témoignages annonce dix, neuf sont affichés.
+1. **Médiateur de la consommation.** Elle y adhère : ses CGV citent CNPM MÉDIATION CONSOMMATION. Mais l'entité a changé de nom et d'adresse : elle s'appelle MÉDIATION CONSOMMATION DÉVELOPPEMENT, à Saint-Étienne, et son site est `www.medconsodev.eu`. La mention est rédigée dans les mentions légales avec ces coordonnées, sous un commentaire `À CONFIRMER`. **Reste à faire** : qu'elle copie le texte officiel depuis son espace adhérent, rubrique « Mes mentions obligatoires », ce qui confirmera aussi que l'adhésion est active, et qu'elle corrige ses CGV. Ensuite la page bilan peut être publiée.
+2. **CGV et CGU.** Les CGU sont reçues : sept articles génériques, avec une phrase de modèle à retirer en fin de texte. **Les CGV manquent encore**, Augustin les lui redemande. Pages à créer et liens à remettre dans le pied de page quand les deux textes sont là.
+3. ~~Quinze ans ou douze ans d'ingénierie.~~ Tranché le 11 novembre : quinze ans, de 1999 à 2014. Elle précise qu'à la fin elle était salariée sans plus travailler. La page À propos affiche maintenant « 2002 à 2014 ».
+4. ~~Les neuf entreprises nommées sur la page À propos.~~ Validées le 11 novembre.
+5. **Page formation, conformité Qualiopi.** Prérequis validés le 11 novembre. Elle n'a pas trouvé les modalités d'évaluation : elles sont dans le tableau « En pratique », ligne « Évaluation ». À lui montrer pour validation, avec le délai d'accès.
+6. ~~Accès à sa fiche Google.~~ Augustin l'a. Le lien pour demander des avis est posé sur la page témoignages.
+7. ~~L'adresse de son profil LinkedIn.~~ Fait le 11 novembre : `linkedin.com/in/haumonte` dans le pied de page des 12 pages.
+8. ~~Neuf ou dix avis.~~ Il y en a bien dix sur Google. Décision d'Augustin : la page en affiche neuf, on n'ajoute pas le dixième. L'encart garde « 10 avis Google », la description ne dit plus « les dix avis ».
 
 Ajouts du 11 novembre, à lui faire valider :
 
@@ -104,7 +106,7 @@ Ajouts du 11 novembre, à lui faire valider :
 
 **Augustin**
 
-9. Trois trous marqués par des commentaires `À COMPLÉTER` dans le HTML : adresse complète de l'hébergeur, coordonnées du médiateur, accessibilité précise des locaux. Les deux derniers dépendent d'elle.
+9. Un trou `À COMPLÉTER` reste dans le HTML : l'accessibilité précise des locaux, qui dépend d'elle. L'adresse de l'hébergeur est remplie. La mention du médiateur est rédigée mais porte un `À CONFIRMER`, voir le point 1.
 10. Exporter de Wix avant toute résiliation : CGV, CGU, messages du formulaire, clients et rendez-vous Wix Bookings.
 11. Désactiver le renouvellement automatique du forfait Wix avant le **21 mai 2027**, sans toucher au domaine qui se renouvelle le 11 juin.
 12. **Vérifier le budget de crédits Netlify avant la bascule.** Le plan gratuit donne 300 crédits par mois, plafond strict. Un déploiement en production en coûte 15, la bande passante 20 par gigaoctet. Une vingtaine de pushs par mois suffit donc à épuiser le quota. Si ça serre, OVH redevient une option sérieuse, au prix d'un script PHP à écrire pour le formulaire.
@@ -115,12 +117,12 @@ Ajouts du 11 novembre, à lui faire valider :
 
 ## Prochaines étapes, dans l'ordre
 
-1. Recueillir les retours d'Anne-Sophie sur la préversion, corriger.
-2. Combler les trous légaux, régler le médiateur, obtenir le lien LinkedIn.
+1. ~~Recueillir les retours d'Anne-Sophie, corriger.~~ Fait le 11 novembre, par mail.
+2. Combler les trous légaux : LinkedIn et hébergeur faits. Restent le texte officiel du médiateur, les CGV, l'accessibilité des locaux.
 3. Décider de 11ty, qui conditionne le blog et l'interface d'édition.
-4. Recette : Lighthouse, mobile réel, formulaire de contact, lien Bookings, relecture des textes.
-5. Brancher le formulaire sur Netlify Forms.
-6. **Retirer les éléments de préversion** : le fichier `site/_headers` qui interdit l'indexation, le fichier `site/assets/js/review.js`, les douze balises `<script ... review.js>`, et le formulaire caché `avis-maquette` dans `index.html`. Supprimer aussi `assets/js/main.js`, qui ne contient qu'un commentaire et n'est référencé nulle part.
+4. Recette sur la préversion : **téléphone réel** (les animations n'y ont jamais été essayées au doigt), formulaire de contact, lien Bookings, relecture des textes.
+5. Brancher le formulaire sur Netlify Forms : activer la détection des formulaires dans Netlify, redéployer, régler l'adresse de notification, puis envoyer un message d'essai.
+6. ~~Retirer les éléments de préversion.~~ Fait le 11 novembre dans les fichiers : `site/_headers` ne contient plus de `noindex`, les douze balises `review.js` et le formulaire caché `avis-maquette` sont retirés. **Reste un geste à la main** : `git rm site/assets/js/review.js`, le fichier n'est plus utilisé mais il est encore là.
 7. Bascule DNS : 3 enregistrements A et le CNAME `www` dans le panneau Wix. Ne toucher à rien d'autre.
 8. Search Console, et mise à jour du lien du site sur la fiche Google.
 9. Résilier le forfait Wix.
@@ -129,9 +131,7 @@ Ajouts du 11 novembre, à lui faire valider :
 
 ## Recueillir les retours d'Anne-Sophie
 
-Un bouton « Commenter » flotte en bas à droite de chaque page de la préversion. Elle sélectionne un passage, clique, écrit sa remarque, et le passage sélectionné part avec le commentaire. Les retours arrivent dans Netlify, onglet **Forms**, formulaire `avis-maquette`, et Netlify peut envoyer un e-mail à chaque dépôt (Site configuration, Forms, Form notifications).
-
-Cent dépôts par mois sur le plan gratuit, largement de quoi faire.
+Le bouton « Commenter » de la préversion a été retiré le 11 novembre, avec la mise en production. Ses retours passent désormais par mail.
 
 ---
 
@@ -186,8 +186,8 @@ Pour une nouvelle page, rien à faire : il suffit que la coquille soit la même 
 - **Le DNS.** Les dix enregistrements Microsoft font vivre sa messagerie, Teams et ses appareils. Ne toucher qu'aux A et au `www`. Tout est relevé dans `DNS-avant-bascule.md`.
 - **Le forfait Wix et le domaine sont deux factures distinctes.** Résilier le premier ne doit pas emporter le second.
 - **Ne jamais inventer un chiffre.** C'est arrivé une fois : « 100 % de projets valides à six mois » était fabriqué à partir d'un « Oui ». Retiré.
-- **`site/_headers`** empêche Google d'indexer la préversion. À supprimer le jour de la mise en ligne, sans quoi le site restera invisible.
-- **Le bloc-notes de relecture** (`assets/js/review.js`) ne s'affiche que sur `localhost` et sur une adresse en `.netlify.app`. Il ne peut donc pas apparaître par accident sur `workandjoy.org`, mais il reste à supprimer.
+- **`site/_headers` ne bloque plus Google** depuis le 11 novembre. Tant que le DNS n'est pas basculé, l'adresse en `.netlify.app` est donc indexable. Les balises canonical pointent vers `workandjoy.org`, le risque est faible, mais il ne faut pas laisser traîner cet état des semaines.
+- **Le bloc-notes de relecture n'est plus chargé.** Le fichier `assets/js/review.js` reste à supprimer avec `git rm`.
 - **La dette des douze en-têtes.** Modifier le menu, c'est modifier douze fichiers. C'est le prix du report de 11ty.
 - **Les logos Qualiopi et UPE13 sont sous charte.** Ne pas sortir le badge Qualiopi de son cartouche blanc, ne pas retirer le bandeau Marianne, ne pas toucher aux couleurs ni aux proportions des deux logos, ne pas descendre le badge Qualiopi sur une page dédiée à une seule action de formation. Le logo UPE13 porte un millésime : il tombe si la cotisation n'est pas renouvelée.
 - **Les animations enveloppent les sections.** Une fois `scene.js` lancé, les sections ne sont plus des enfants directs de `<main>` ni forcément voisines. Un sélecteur CSS du type `main > section` ou `.a + .b` entre deux sections cesserait de s'appliquer. Aucun n'existe aujourd'hui, ne pas en ajouter.

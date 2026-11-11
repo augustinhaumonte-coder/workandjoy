@@ -89,30 +89,15 @@ a { color: inherit; }
 :focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
 @media (prefers-color-scheme: dark) { :focus-visible { outline-color: var(--jaune); } }
 
-/* ---------- wordmark ---------- */
+/* ---------- logo de l'en-tête ---------- */
+/* Le logo d'Anne-Sophie en version horizontale : son carré, puis « WORK & JOY » dans le dessin
+   d'origine. Les lettres prennent la couleur du lien, pour rester lisibles en mode sombre. */
 
-.mark {
-  font-family: var(--display);
-  font-weight: 900;
-  font-size: 0.95rem;
-  letter-spacing: 0.2em;
-  color: var(--violet);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.45em;
-  white-space: nowrap;
-}
-.mark__amp { color: var(--violet); }
-.mark__o {
-  display: inline-block;
-  width: 0.78em; height: 0.78em;
-  background: var(--jaune);
-  border-radius: 50%;
-  margin: 0 0.06em -0.02em;
-  box-shadow: 0 0 0 1px var(--violet);
-}
-@media (prefers-color-scheme: dark) { .mark, .mark__amp { color: var(--ink); } }
+.mark { display: flex; align-items: center; color: var(--violet); text-decoration: none; }
+.mark__logo { display: block; height: 42px; width: auto; }
+.mark__o { fill: var(--jaune); }
+@media (prefers-color-scheme: dark) { .mark { color: var(--ink); } }
+@media (max-width: 1100px) { .mark__logo { height: 38px; } }
 
 /* ---------- nav ---------- */
 
@@ -135,16 +120,9 @@ a { color: inherit; }
 }
 .nav__links a:hover { color: var(--ink); }
 .nav__links a { white-space: nowrap; }
-.nav__tel {
-  font-variant-numeric: tabular-nums;
-  font-weight: 600 !important; color: var(--ink) !important;
-}
-/* entre le burger et les grands écrans, la barre est déjà pleine :
-   le téléphone s’efface, il reste dans le menu déroulant et sur la page contact */
-@media (max-width: 1200px) and (min-width: 921px) { .nav__tel { display: none; } }
 .nav__toggle, .nav__burger { display: none; }
 
-@media (max-width: 920px) {
+@media (max-width: 1100px) {
   .nav__burger {
     display: flex; flex-direction: column; justify-content: center; gap: 5px;
     width: 44px; height: 44px; cursor: pointer; padding: 0 9px;
@@ -820,7 +798,7 @@ a { color: inherit; }
 .drop__panel a:hover { background: color-mix(in srgb, var(--jaune) 22%, transparent); }
 .drop__panel a[aria-current] { background: color-mix(in srgb, var(--violet) 10%, transparent); }
 
-@media (max-width: 920px) {
+@media (max-width: 1100px) {
   .drop { width: 100%; border-bottom: 1px solid var(--rule); }
   .drop summary { padding: 0.85rem 0; justify-content: space-between; }
   .drop__panel {
@@ -1009,7 +987,7 @@ form .hint:last-child { margin-top: 1rem; max-width: 46ch; }
   pointer-events: none; z-index: 49; will-change: transform; visibility: hidden;
 }
 .fil.is-top { z-index: 60; }             /* tant qu'elle est dans l'en-tête, elle passe devant */
-.fil-out .mark__o { background: transparent; }   /* le O du logo reste vide quand la bille est partie */
+.fil-out .mark__o { fill: transparent; stroke: currentColor; stroke-width: 1.6; }   /* le O du logo reste vide quand la bille est partie */
 /* une fois la bille entrée dans le bouton, il respire doucement tant que la page est figée */
 @keyframes fil-call { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
 .btn.is-calling { animation: fil-call 1.5s ease-in-out infinite; }

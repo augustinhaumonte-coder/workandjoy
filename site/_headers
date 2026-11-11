@@ -1,2 +1,2 @@
-/*
-  X-Robots-Tag: noindex
+# Le site est en production : plus d'en-tête noindex.
+# Ce fichier est gardé vide, prêt pour d'éventuels en-têtes HTTP (cache, sécurité).

@@ -45,6 +45,34 @@ Corrigé au passage : le titre « On en parle quinze minutes ? » était collé 
 
 Vérifié par script sur les 12 pages, ordinateur et téléphone : aucune erreur, aucun débordement, arrêt sur le bouton partout, bille jamais sur du texte, mise en page d'origine sans JavaScript ou avec les animations réduites. **Pas vérifié** : le rendu au doigt sur un vrai téléphone.
 
+### Réponses d'Anne-Sophie, appliquées le soir même
+
+| Réponse | Ce qui a été fait |
+|---|---|
+| Lien LinkedIn | Pied de page des 12 pages et `sameAs` de l'accueil |
+| Quinze ans, de 1999 à 2014 | Page À propos : frise « 2002 à 2014 », description « Quinze ans » au lieu de « Douze ans » |
+| Phrase sur le reclassement | « j'ai participé au reclassement… ». Elle avait écrit « aidé participé », « participé » a été retenu |
+| Son vrai logo | En-tête des 12 pages, en version horizontale. Voir la décision dans `REPRENDRE-ICI-1.md` |
+| Dix avis, mais on n'ajoute pas le dixième | Décision d'Augustin. La description de la page ne dit plus « les dix avis » |
+| Lien pour demander des avis | Lien « Laisser un avis sur Google » sur la page témoignages |
+| Médiateur | Voir ci-dessous |
+
+**Le médiateur a changé de nom.** Ses CGV citent CNPM MÉDIATION CONSOMMATION à Saint-Chamond. Vérification faite sur le site du médiateur : l'ancienne adresse redirige vers `www.medconsodev.eu`, l'entité s'appelle MÉDIATION CONSOMMATION DÉVELOPPEMENT et elle est à Saint-Étienne. La mention des mentions légales reprend ces coordonnées, avec la formule que le médiateur demande à ses adhérents. Le texte exact est dans son espace adhérent, rubrique « Mes mentions obligatoires » : c'est lui qui fait foi.
+
+**Hébergeur.** Netlify, Inc., 101 2nd Street, San Francisco, CA 94105. Netlify ne publie pas de téléphone, son adresse de contact le remplace.
+
+**Menu.** Le vrai logo fait 171 px de large contre 134 pour l'ancien mot-symbole. Le burger passe de 920 à 1100 px et le téléphone s'efface jusqu'à 1280 px. Au passage, ça corrige un débordement qui existait déjà entre 921 et 980 px.
+
+**Vu et non corrigé.** Sur l'accueil, en dessous de 366 px de large, le bouton « Voir les accompagnements » est trop long et la page déborde de 4 px. Sur un écran de 320 px, c'est le bouton « Prendre rendez-vous » du bas de chaque page qui déborde.
+
+### Téléphone retiré, et passage en version de production
+
+À la demande d'Augustin, le numéro de téléphone sort du site : en-tête des 12 pages, page contact, page accessibilité. Il reste dans les mentions légales, où il est obligatoire pour une société. La fiche officielle « Mentions obligatoires sur le site internet d'une entreprise » le liste avec l'adresse mail, et annonce jusqu'à 375 000 € d'amende pour une société en cas de manquement.
+
+Dans la foulée, les éléments de préversion sont retirés des fichiers : plus de `noindex` dans `site/_headers`, plus de balise `review.js`, plus de formulaire `avis-maquette`. Le fichier `review.js` lui-même reste à supprimer à la main, les outils fichier ne savent pas supprimer.
+
+**Piège d'outillage découvert.** Une écriture dans le dossier depuis un même chemin de préparation renvoie parfois l'ancien contenu : les notes de reprise écrites en fin d'après-midi n'avaient pas été mises à jour, alors que l'outil annonçait le contraire. Depuis, chaque écriture part d'un chemin neuf, et la taille du fichier est relue après coup. Les copies des prototypes dans `Claude outputs/` sont probablement restées à leur première version pour la même raison ; elles ne servent plus.
+
 ---
 
 ## 3 novembre 2026 — Certifications, logos, et passage de la checklist
