@@ -5,9 +5,9 @@
 
 ---
 
-## 11 novembre 2026 — Mots clés dans le texte, puis les animations au défilement
+## 11 novembre 2026 — Mots clés, animations au défilement, puis la mise en ligne
 
-Deux sujets. Le matin, vérifier le référencement et combler le trou des mots clés. Ensuite, à la demande d'Augustin qui trouvait le site « assez banal », des animations au défilement qui jouent avec le logo.
+Une longue séance, dans cet ordre : vérifier le référencement et combler le trou des mots clés ; à la demande d'Augustin qui trouvait le site « assez banal », des animations au défilement qui jouent avec le logo ; les réponses d'Anne-Sophie ; le passage en version de production ; et le soir, la bascule du domaine vers le nouveau site.
 
 ### Référencement
 
@@ -94,6 +94,29 @@ Après correction : aucun débordement sur les 14 pages de 320 à 414 px.
 **Le O du logo.** Une fois la bille partie, le O vide était tracé trop épais. Il devient un trait fin et atténué, à l'intérieur du rond d'origine.
 
 **Animations.** Une arête séparée du bloc voisin par une marge n'est plus retenue comme palier : la ligne d'arrêt ne tomberait pas sur le bord visible.
+
+### Mise en ligne : la bascule du domaine
+
+Augustin a poussé la version de production, essayé le site sur son téléphone (« c'est bon ça marche »), puis demandé comment « supprimer l'ancien site et mettre le nouveau ». Réponse : on ne supprime rien. L'ancien site reste dans le compte Wix, on change seulement la destination du nom de domaine.
+
+Déroulé, entre 18 h 20 et 18 h 45 :
+
+| Étape | Ce qui s'est passé |
+|---|---|
+| Domaine déclaré dans Netlify | **Domain management**, **Add a domain you already own**, DNS externe |
+| Message « Pending External DNS verification » | Normal tant que le DNS n'est pas changé. Netlify propose un ALIAS en premier choix et un A vers `75.2.60.5` en repli : Wix ne propose pas d'ALIAS, on a pris le repli |
+| Avertissement sur le domaine principal | Netlify avait pris l'adresse nue comme principale et recommande `www`. C'est aussi l'adresse des balises canonical |
+| **Set as primary domain** refusé | « We're provisioning a certificate for your site, you cannot change custom domains until that process completes ». À refaire une fois le certificat créé. **Pas refait à la fin de la séance** |
+| Enregistrements A dans Wix | Un nouveau A, nom laissé vide, valeur `75.2.60.5`, puis suppression des trois anciens |
+| CNAME `www` dans Wix | Ligne existante modifiée : `cdn3.wixdns.net` remplacé par l'adresse Netlify du site |
+
+**Ce que j'ai vérifié de l'extérieur à 18 h 47.** `reliable-druid-e56775.netlify.app` sert bien la dernière version : liens CGV et CGU dans le pied de page, mentions légales sans médiateur et avec Netlify comme hébergeur, CGV à 12 articles, téléphone seulement dans les mentions légales. `www.workandjoy.org` servait encore le site Wix, ce qui est attendu pendant la première heure. L'adresse sans `www` n'a pas pu être lue.
+
+**Ce que je n'ai pas vu, et qui reste donc à confirmer.** Le panneau Wix après modification. La valeur exacte saisie dans le CNAME `www` : dans les notes d'octobre l'adresse était `reliable-druid-e56775.netlify.app`, elle répond toujours, mais Augustin l'a saisie seul. Le formulaire de contact : la question a été posée avant la bascule et est restée sans réponse, je ne sais pas si Netlify Forms est activé. La suppression de `review.js`.
+
+**Le formulaire, pourquoi il compte.** Le site n'a qu'un formulaire, sur la page Contact : nom, email, entreprise, message. Sur un site statique, c'est Netlify qui reçoit le message, à condition d'avoir activé la détection des formulaires puis relancé un déploiement. Sans cela, le visiteur qui envoie un message tombe sur une erreur et Anne-Sophie ne reçoit rien.
+
+**Relevé dans le panneau Wix au passage.** Cinq CNAME Microsoft existent en plus de ceux relevés de l'extérieur en octobre : `autodiscover`, `enterpriseenrollment`, `enterpriseregistration`, `lyncdiscover`, `sip`. Aucun n'a été touché. Reportés dans `DNS-avant-bascule.md`.
 
 ---
 
