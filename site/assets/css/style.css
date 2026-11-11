@@ -361,7 +361,7 @@ a { color: inherit; }
 
 .voisins {
   max-width: var(--max); margin: 0 auto;
-  padding: clamp(3.5rem, 7vw, 5rem) var(--pad) 0;
+  padding: clamp(3.5rem, 7vw, 5rem) var(--pad);
 }
 .voisins > h2 {
   font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
@@ -930,3 +930,94 @@ form .hint:last-child { margin-top: 1rem; max-width: 46ch; }
 }
 .legal p { color: var(--ink-soft); }
 .legal strong { color: var(--ink); font-weight: 600; }
+
+/* ======================================================================
+   Animations au défilement : la scène de la méthode (accueil), la bille
+   jaune fil conducteur et les paliers (toutes les pages).
+   Tout est activé par assets/js/scene.js. Sans JavaScript, ou si le
+   visiteur a demandé moins d'animations, rien de ce bloc ne s'applique
+   et les sections gardent leur mise en page d'origine.
+   ====================================================================== */
+
+/* hauteur de repli ; scene.js pose la vraie valeur, calculée à partir de ses réglages */
+.scene.is-live { height: 445vh; height: calc(100svh * 4.45); }
+.scene.is-live .scene__pin {
+  position: sticky; top: 71px;
+  height: calc(100vh - 71px); height: calc(100svh - 71px);
+  max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--gap); align-items: center;
+}
+/* le carré est à droite : la bille y entre et en sort par la marge, sans survoler le texte */
+.scene__art {
+  order: 2; justify-self: center; width: min(100%, 66svh, 540px); aspect-ratio: 1;
+  background: var(--violet); overflow: hidden;
+}
+.scene__art svg { display: block; width: 100%; height: 100%; }
+.scene__art .pl { fill: #fff; }
+.scene__art .bj { fill: var(--jaune); }
+.scene__art .bc { fill: var(--corail); }
+
+.scene.is-live .scene__copy > h2 { max-width: none; margin: 0 0 2rem; padding: 0; }
+.scene.is-live .temps {
+  max-width: none; margin: 0; padding: 0;
+  grid-template-columns: 1fr; gap: 0;
+}
+.scene.is-live .temps__item {
+  border-top: 0; border-left: 4px solid var(--rule);
+  padding: 0.95rem 0 0.95rem 1.5rem;
+  transition: border-color 0.35s;
+}
+.scene.is-live .temps__item h3,
+.scene.is-live .temps__item p { transition: color 0.35s, opacity 0.35s; }
+.scene.is-live .temps__item h3 { color: var(--ink-soft); margin-bottom: 0.4em; }
+.scene.is-live .temps__item p { opacity: 0.7; max-width: 46ch; }
+.scene.is-live .temps__item.is-on { border-left-color: var(--jaune); }
+.scene.is-live .temps__item.is-on h3 { color: var(--ink); }
+.scene.is-live .temps__item.is-on p { opacity: 1; }
+
+@media (max-width: 860px) {
+  .scene.is-live .scene__pin {
+    grid-template-columns: 1fr; gap: 1.25rem;
+    align-content: center; padding-block: 1rem;
+  }
+  .scene__art { order: 0; width: min(74vw, 36svh); }
+  .scene.is-live .scene__copy > h2 { font-size: 1.45rem; margin-bottom: 0.9rem; }
+  .scene.is-live .temps__item { padding: 0.5rem 0 0.5rem 1rem; }
+  .scene.is-live .temps__item h3 { font-size: 1.05rem; margin-bottom: 0; }
+  /* sur mobile, seul le texte de l'étape en cours est déplié, faute de place */
+  .scene.is-live .temps__item p {
+    max-height: 0; overflow: hidden; opacity: 0; font-size: 0.97rem;
+    transition: max-height 0.4s, opacity 0.3s, margin 0.4s;
+  }
+  .scene.is-live .temps__item.is-on p { max-height: 11em; opacity: 1; margin-top: 0.4em; }
+}
+/* petits téléphones : on réduit le dessin pour que les trois étapes tiennent à l'écran */
+@media (max-width: 860px) and (max-height: 640px) {
+  .scene__art { width: min(60vw, 29svh); }
+  .scene.is-live .scene__pin { gap: 0.75rem; padding-block: 0.5rem; }
+  .scene.is-live .scene__copy > h2 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .scene.is-live .temps__item { padding-block: 0.35rem; }
+  .scene.is-live .temps__item p { font-size: 0.92rem; line-height: 1.5; }
+}
+
+/* ---------- fil conducteur : la bille jaune du logo qui descend la page ---------- */
+.fil {
+  position: fixed; left: 0; top: 0; width: 18px; height: 18px;
+  border-radius: 50%; background: var(--jaune);
+  box-shadow: 0 0 0 1px var(--violet);   /* le même liseré que le O du logo */
+  pointer-events: none; z-index: 49; will-change: transform; visibility: hidden;
+}
+.fil.is-top { z-index: 60; }             /* tant qu'elle est dans l'en-tête, elle passe devant */
+.fil-out .mark__o { background: transparent; }   /* le O du logo reste vide quand la bille est partie */
+/* une fois la bille entrée dans le bouton, il respire doucement tant que la page est figée */
+@keyframes fil-call { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+.btn.is-calling { animation: fil-call 1.5s ease-in-out infinite; }
+
+/* ---------- paliers : les enveloppes qui figent la page pendant qu'on défile ---------- */
+.pal__probe { position: fixed; left: 0; top: 0; width: 0; height: 100vh; height: 100svh; visibility: hidden; pointer-events: none; }
+.pal__box, .pal__up, .pal__lowbox, .pal__low { display: flow-root; }
+.pal__up, .pal__low, .pal__foot { position: sticky; }
+/* les enveloppes vides se chevauchent : elles ne doivent pas intercepter les clics */
+.pal__box, .pal__up, .pal__lowbox { pointer-events: none; }
+.pal__low, .pal__foot { pointer-events: auto; }

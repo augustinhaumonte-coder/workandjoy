@@ -5,6 +5,48 @@
 
 ---
 
+## 11 novembre 2026 — Mots clés dans le texte, puis les animations au défilement
+
+Deux sujets. Le matin, vérifier le référencement et combler le trou des mots clés. Ensuite, à la demande d'Augustin qui trouvait le site « assez banal », des animations au défilement qui jouent avec le logo.
+
+### Référencement
+
+Le SEO technique était complet sur les 12 pages. Le manque était dans le texte : les requêtes visées par `CADRAGE.md` figuraient dans les `title` et presque pas dans les pages. « Coach » n'apparaissait ni dans le `title` ni dans le H1 de la page dirigeant.
+
+| Fait | Détail |
+|---|---|
+| Sous-titre sous le H1 | Sur les 5 pages d'offre, dans un `<hgroup>`. Le H1 ne bouge pas |
+| H2 précisés | « Comment est-ce que ça se passe ? » devient « Comment se déroule un séminaire d'équipe », etc. |
+| FAQ en bas de page | 3 à 4 questions par page d'offre, uniquement à partir de faits déjà écrits sur le site. Aucun chiffre nouveau |
+| `title` de deux pages | Séminaire et dirigeant |
+
+Écarté : la balise `meta keywords`, ignorée par Google depuis 2009, et le texte caché, que Google classe comme spam.
+
+### Animations
+
+Cinq versions de prototype dans la journée, dans `Claude outputs/prototype-animation-*.html`. Ce qui a été retenu, et pourquoi :
+
+| Décision | Raison |
+|---|---|
+| La scène de la méthode sur l'accueil | La seule idée où l'animation explique quelque chose : désordre, table, plan. L'image finale est le logo exact, positions relevées dans `logo.svg` |
+| Des pauses dans la scène | Sans elles, tout changeait dès que la section se figeait. Demande d'Augustin |
+| La planche qui se redresse, abandonnée | Jugée ridicule sur la page d'offre |
+| La bille fil conducteur sur toutes les pages | Elle a remplacé la planche. Elle part du O du logo et finit dans le bouton de rendez-vous |
+| La page se fige quand la bille traverse | Pour que le lecteur ne regarde la bille qu'à des moments choisis. Arrêt complet plutôt que ralenti : l'arrêt est fait par le navigateur en `position: sticky`, un ralenti aurait dû être simulé en JavaScript et aurait saccadé sur téléphone |
+| Arrêt et latence sur le bouton final | Pour donner envie de cliquer. Demande d'Augustin |
+| Sur l'accueil, la bille du haut repart du logo | Pour qu'elle finisse elle aussi dans le bouton |
+| Carré à droite sur ordinateur | Conséquence du point précédent : la bille entre et sort par la marge de droite sans survoler le texte |
+| La bille bouge aussi en hauteur | À hauteur fixe elle paraissait morte. Elle tombe après une traversée, descend doucement, puis se pose sur l'arête suivante qui la remonte |
+| Une arête n'est un palier que s'il y a de la place sous le texte | Trouvé en vérifiant les 12 pages : sur trois d'entre elles le texte touche le bloc violet, la bille aurait roulé dessus |
+
+Deux bugs corrigés en route, de même nature : la hauteur de la bille était lue sur le défilement réel et ses déplacements sur un défilement lissé, en retard de quelques images. Aux transitions elle sautait. Tout ce qui est mouvement propre de la bille suit maintenant la même horloge.
+
+Corrigé au passage : le titre « On en parle quinze minutes ? » était collé au bloc « Et aussi » sur les pages qui en ont un.
+
+Vérifié par script sur les 12 pages, ordinateur et téléphone : aucune erreur, aucun débordement, arrêt sur le bouton partout, bille jamais sur du texte, mise en page d'origine sans JavaScript ou avec les animations réduites. **Pas vérifié** : le rendu au doigt sur un vrai téléphone.
+
+---
+
 ## 3 novembre 2026 — Certifications, logos, et passage de la checklist
 
 Trois sujets dans la journée : poser les logos Qualiopi et UPE13 correctement, ranger les déclinaisons du logo Work and Joy, puis passer le site au crible d'une checklist de 55 points.
